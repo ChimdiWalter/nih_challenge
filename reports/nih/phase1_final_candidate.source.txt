@@ -1,0 +1,422 @@
+InvariantCell: time-aware oncology evidence review
+
+Phase 1 concept and feasibility candidate, v14. Internal draft, 27
+September 2026. Applicant/team identity, rights and resource
+documentation still require review. No submission or registration
+has occurred.
+
+An oncology research reviewer needs to distinguish an observation
+from a prediction, a proposed correction from an accepted revision,
+and a dated source from evidence actually available at a historical
+cutoff. A static graph can preserve each statement while obscuring
+these differences.
+
+InvariantCell represents assertions with explicit provenance,
+polarity, context and separate time axes. A deterministic temporal
+engine returns supported answers or specific abstentions. An
+independent replay checks a certificate against the exact snapshot
+and query. These checks establish reproducibility within declared
+assumptions; they do not establish biological truth.
+
+The core empirical result is temporal reasoning on a frozen final
+documentary panel: static lookup scored 24/138, timestamp filtering
+42/138, and both temporal rules and verifier 138/138. The verifier
+contribution is inspectability, provenance, independent replay and
+typed failure; no incremental answer-accuracy gain over sound rules
+is claimed.
+
+Evidence available includes a four-story, eleven-query documentary
+comparison; actual RDF/SHACL/bounded OWL-RL checks; and one
+independent image/reference measurement example. A new CIViC corpus
+contains 32 real revisions and 238 correlated queries, frozen before
+evaluation. Both strong rules and the verifier scored 238/238; all
+certificates replayed.
+
+This document addresses temporal modeling (25%), reasoning
+correctness (25%), interoperability (20%), feasibility (15%) and
+workflow relevance (15%). References are included within ten pages.
+It is not submission-ready while expert review and component-level
+eligibility remain incomplete. [1]
+
+1. A focused research evidence-review workflow
+
+The intended user is a biomedical researcher reviewing molecular
+evidence and pathology measurements for an oncology question. Inputs
+are a molecular finding, stated disease/context, query time,
+permitted sources and the particular evidence question. Current
+demonstrations use public non-PHI material; no patient-specific
+treatment recommendation is generated.
+
+Outputs are an attributed answer, supporting or opposing statements,
+relevant revision relationships, missing evidence and a replayable
+certificate. An abstention names the unmet condition, such as
+unknown historical availability, unknown specimen time, incomplete
+revision history or missing physical scale.
+
+The workflow separates two questions. Retrospective review asks what
+a recorded revision says happened in the past, using today's source
+snapshot. Historical-knowledge reconstruction asks what evidence was
+publicly available then. A current snapshot containing old event
+timestamps can support the first question without establishing the
+second.
+
+The new CIViC task asks whether a specific revision had editorial
+acceptance at a cutoff and which stored replacement value that
+revision accepted. The actual prior and suggested values are
+retained. It does not assume that a replacement remained the latest
+clinical interpretation or that the parent evidence item remained
+accepted.
+
+A completed matched-access documentary M2 selected two of seven
+fixed predictions. Native, calibrated, rules and verified policies
+each selected one correct answer; rules and verifier selected the
+same pair. Verification did not improve this endpoint. The next
+scientific question needs real hidden measurements and outcomes, not
+a third repetition of this ranking comparison.
+
+Current limits are substantive: no expert-adjudicated clinical
+decision set, no validated intervention sequence, no independent
+patient outcome and no demonstrated improvement over strong temporal
+rules. These are development requirements, not completed
+capabilities. [2,3]
+
+2. Temporal representation and unknown information
+
+An assertion includes a stable identity, subject, predicate, value,
+context, polarity, state kind and source digest. Observation and
+inference remain different state kinds. A source statement is
+retained as attributed evidence rather than silently promoted to
+biological fact.
+
+Independent axes record event time, explicit validity interval,
+public evidence availability, local ingestion and prediction
+generation. Ontology extensions also retain publication and
+annotation/version times. Missing values remain unknown. Annotation,
+ingestion or database update dates cannot fill an unknown biological
+event or first-publication date.
+
+Validity uses an explicitly declared half-open interval [start,
+end). A missing endpoint means an open bound only when an interval
+is explicitly asserted; otherwise validity is unknown. Nonpositive
+intervals are rejected. Date-only bounds in older documentary cases
+were conservative computational projections, not newly observed
+timestamps.
+
+For CIViC, creation and acceptance timestamps describe curation
+events. Their intervals describe editorial acceptance of a revision.
+Biological time remains unknown. A conservative observed-public-by
+bound is recorded after receipt of the current source bodies.
+Unknown first-publication times prevent claims of exact historical
+public availability.
+
+Corrections preserve predecessor and successor records. A negative
+qualifier remains attached to its assertion and is never flattened
+into a positive edge. Pending revisions are not automatically
+scientific conflicts. Conflicting support and refutation are
+reported only within the same stated proposition and scope.
+
+This typed representation is implemented and reusable. It has not
+established a learned temporal embedding advantage, complete
+causal-path reasoning or arbitrary longitudinal trajectory
+reconstruction. Extension requires source-specific semantic
+validation and independently justified timing. [2,4]
+
+3. Correctness, matched methods and certificates
+
+A query specifies subject, predicate, context, public-evidence
+cutoff, ingestion cutoff and valid-at time, with an optional event
+cutoff. The engine excludes mismatched scope, unavailable evidence,
+invalid intervals, disallowed predictions and missing or late
+dependencies. It returns explicit support, refutation, conflict or
+abstention.
+
+A certificate binds the snapshot, dependencies, query, result and
+algorithm version by digest. A separate implementation replays the
+claimed checks against the supplied snapshot. Tampering or
+inconsistent replay fails. A valid certificate can certify a
+justified abstention; it does not certify source completeness or
+biological correctness.
+
+The fixed comparison uses identical typed inputs: static KG lookup;
+availability/ingestion timestamp filtering; strong rules adding
+interval and event constraints; and the existing verified temporal
+engine. No retrieval, source-access or fitting advantage is assigned
+to the verifier. The rule baseline is retained even when results
+tie.
+
+New source gold is stored outside the solver interface. All
+predictions are materialized and hashed before the evaluator opens
+semantic gold. A once-only marker is acquired before comparator
+execution; a failed attempt remains consumed and its receipt
+persists. Separate development, validation and final-internal-test
+files make exposure explicit.
+
+Metrics include exact answer correctness, unsupported availability
+uses, invalid-interval uses, curation-order violations,
+required-support coverage, provenance, abstentions, certificate
+replay and runtime. With unknown first-publication time, actual
+future-publication leakage is not identifiable. Missing multi-hop or
+biological-conflict tasks produce null metrics, not zero failures.
+
+The v14 saved-proof audit replayed 138/138 final certificates with
+source-bound provenance on 138/138. All 552/552 specified copy-only
+attacks were rejected; 138/138 repeated replays agreed. All 69/69
+abstentions were correct with typed reasons. Observed-cutoff,
+interval and curation-event violations were zero. With zero real
+contradiction witnesses, detection accuracy is not estimable.
+Historical first-publication leakage remains unknown. No answers
+were regenerated.
+
+4. Empirical evidence and prospective evaluation
+
+The completed v10 documentary comparison has four source-adjudicated
+stories and eleven queries. Static lookup answered 6/11 correctly,
+timestamp filtering 7/11, strong temporal rules 11/11 and verified
+temporal 11/11. Eleven certificates replayed. No accuracy
+improvement over strong rules was observed. These are related
+documentary queries, not independent clinical cases.
+
+Older twenty-nine-query results remain archived and unchanged. No
+completed benchmark was rerun for this candidate. The v10 labels
+were written from primary sources independently of solver outputs by
+a coding agent, not validated by clinical experts. First-publication
+times were unknown. [3]
+
+The new v13 source is actual CIViC revision history: 32 revisions,
+87 attributed assertions and 238 queries. Development has 7
+revisions/56 queries; validation 7/44; final internal test 18/138.
+Final candidates EID21-40 were specified before acquisition. Initial
+molecular families, profile IDs and publication IDs were excluded
+from final selection.
+
+Stored prior and suggested field values, curation timestamps and
+exact source pointers make each case auditable. One initial therapy
+history is discontinuous, so general current-field reconstruction is
+not claimed. Current snapshots are not labeled historical archives.
+Code and selection were frozen before final intake; final answers
+are separate from policy inputs.
+
+V13 exact correctness (development / validation / final): static
+7/56, 10/44, 24/138; timestamp filtering 14/56, 17/44, 42/138; rules
+and verifier both 56/56, 44/44, 138/138. Both correctly abstained on
+119 queries, with zero measured interval, availability or
+curation-event violations. All 238 certificates replayed. No
+incremental verifier accuracy gain was observed.
+
+Rules took 1.029 seconds; verifier 5.521 seconds. Total run: 9.906
+seconds, 71,460 KiB peak RSS. Final labels are now consumed. Queries
+remain correlated within 32 revisions; source-field adjudication is
+not clinical-expert gold. Historical public availability is unknown.
+Documentary correctness does not establish biological utility.
+
+5. Ontology rigor and interoperability
+
+Machine-readable artifacts include an RDF/XML ontology, SHACL Core
+shapes and a pinned Biolink mapping. They are bounded original
+projections, not complete imports of GO or Biolink. Non-hierarchical
+axioms cover source inheritance, inverse revision relations,
+symmetric contradiction, value restrictions and disjoint
+observed/predicted or positive/negative types. [4,5]
+
+Executed v11 validation parsed the ontology and shapes,
+round-tripped 112 asserted data triples and checked graph
+isomorphism. Five attributed assertions conformed to actual SHACL
+checks. A 169-triple ontology with data yielded an 887-triple
+bounded OWL-RL closure, with no implemented-rule contradiction
+detected. The run took 4.712 seconds and 49,668 KiB maximum RSS.
+
+Shape conformance and logical consistency are different checks.
+Missing required context can fail a shape without entailing a
+contradiction. Explicit disjoint types trigger the implemented
+logical diagnostic. Full OWL completeness, exhaustive
+unsatisfiable-class analysis and all possible datatype/profile
+errors remain unevaluated.
+
+GO/GAF handling preserves NOT, other qualifiers, evidence codes,
+annotation dates, namespace, obsolete status and replacement
+metadata. Biolink identifiers are checked against version 4.3.6.
+There is no matching Sample class in that pin; local Specimen
+remains unmapped. Broad relationship projections retain exact local
+predicates and do not imply complete Biolink instance conformance.
+
+Internal KG formulas are versioned provisional_internal_v1, not
+organizer scores. Recorded values are: 112 data triples;
+relationship richness 0.611111; attribute richness 1.0; class
+instantiation 3/23; property instantiation 14/36; internal
+interlinking 5/7. Full unsatisfiable-class count is unknown, not
+zero. [4]
+
+The new revision profile passed typed/source integrity checks. It
+has not undergone a new profile-specific OWL/SHACL study; earlier
+formal results are not automatically transferred to every later
+corpus.
+
+6. A real quantity-specific pathology connection
+
+One public NuCLS breast-cancer field provides an independent
+image/reference demonstration. The original RGB image and corrected
+reference annotations come from the source authors. The fixed
+image-only baseline writes predictions before the scorer reads
+reference arrays. No parameter was retuned after evaluation. This
+asset is distinct from P09 and has no asserted molecular pairing.
+[6]
+
+Actual results on eligible references: 46 predicted objects versus
+42 reference nuclei; 19 matched objects, 27 false positives and 23
+missed objects; object F1 0.431818. Pixel Dice is 0.780564 and IoU
+0.640102. Near count agreement therefore hides poor localization.
+
+Eligible predicted area is 18,516 pixels versus 19,928 reference
+pixels. At the source-declared rendered scale of 0.2 micrometers per
+pixel in both axes, this is 740.64 versus 797.12 square micrometers.
+These areas cover eligible pixel-reference regions, not all nuclei,
+whole-slide tissue or patient-level area.
+
+Count/localization references and pixel/area references differ.
+Rectangle-only and unknown regions are excluded from pixel scoring;
+valid rectangles can contribute to object matching. Count is not
+inferred from area. Physical units require a declared scale and
+source; absent scale stays in pixels.
+
+The typed measurement bridge retains reference count 42 as observed
+and baseline count 46 as inferred. Specimen/event and
+source-availability times remain unknown, so the temporal replay
+conservatively abstains where required. A cross-sectional image is
+not manufactured into a longitudinal case.
+
+A later six-field, three-participant trial failed its completion
+check. Separate posthoc reference recovery measured two fields from
+two participants: object F1 0.2921/0.2951 and count error 39 in
+each. Four dimension failures remain; the full patient macro is
+undefined. This is not a rescued trial. A new patient-disjoint
+benchmark and independent quantity-specific references remain
+necessary.
+
+7. Implementation feasibility and Phase 2 package
+
+The Python implementation separates source ingestion, typed
+evidence, temporal evaluation, independent replay and optional
+ontology checks. Plain JSON records and hashes permit inspection
+without a model service. Frozen inputs, outputs and receipts support
+offline replay and exact provenance review.
+
+The CIViC acquisition used 1,742,054 payload bytes. New ClinVar
+intake added 771,328 bytes: seven exact accession-version responses,
+two silently mismatched responses rejected, and two three-version
+series. Classification values remain uninspected, gold pending.
+Current retrievals of archived record versions are not
+byte-identical historical release snapshots; publication times stay
+unknown. [7]
+
+The completed comparison used one CPU with a two-GiB, 180-second
+bound, without network or fitting. Actual run time was 9.906 seconds
+with 71,460 KiB peak RSS. Its once-only attempt is consumed.
+Predictions were saved before gold evaluation; the prediction digest
+was independently verified. New source review must not be presented
+as fresh confirmation of this consumed panel.
+
+Optional formal checks used project-local RDFLib 7.6.0, pySHACL
+0.40.1 and OWLRL 7.6.2. The base environment was not modified. Their
+licenses, versions and contribution/funding provenance belong in the
+final dossier; a successful import is not eligibility clearance.
+
+Phase 2 preparation includes executable code, split data, immutable
+snapshots, configurations, dependency pins and documented hardware
+bounds. An independent expert review, wider natural-history corpus,
+complete profile-specific interoperability checks and a recorded
+walkthrough remain pending. No NIH-supplied data is assumed. [1]
+
+Extensibility is tested by preserving semantics across documentary
+evidence and pathology quantities, with source-specific adapters.
+Further molecular/assay cases must supply actual identity, temporal
+scope and independent outcomes; interface reuse alone is not
+biological transfer evidence.
+
+8. Assumptions, provenance and readiness gates
+
+Core assumptions are explicit: source artifacts are correctly
+identified; current revision API fields faithfully preserve the
+recorded curation events; asserted intervals describe editorial
+states only; and every negative or inferred statement retains its
+scope. These assumptions are auditable but not proven by
+certificates.
+
+Known gaps include incomplete historical availability, discontinuous
+field histories, no clinical-expert gold, sparse independent
+families, no real unresolved biological-conflict benchmark, no
+intervention sequence and no independent patient endpoint. Formal
+gaps include full OWL consistency and an exhaustive
+unsatisfiable-class census. Expected ties and negative findings
+remain reportable outcomes.
+
+CIViC content is CC0 and inspected source code MIT. NuCLS data is
+CC0 with separately licensed code. Original local code, retained
+upstream artifacts and optional libraries require a component-level
+rights/provenance inventory. Data reuse permission and non-PHI
+status do not by themselves establish challenge eligibility.
+
+The user attests nonfederal resources; documentary compute,
+development/support, contributor and institutional evidence remains
+pending. Installed dependency licenses and data reuse terms are
+inventoried separately, including NCBI submitter-IP caveats and the
+local PDF renderer license. Public access does not prove prize
+eligibility. Earlier work is not retrospectively cleared. [1]
+
+The Phase 1 window is October 5, 2026 to January 15, 2027. Phase 2
+is April 5 to November 12, 2027, and limited to Phase 1 winners.
+Registration/terms acceptance and submission require separate user
+action; neither has been performed here. No exact closing hour
+beyond the published time-zone statement is invented. [1]
+
+Before a submission-ready label: complete source/expert review,
+assess the completed rule tie and verification cost, reconcile
+current requirements, finish the eligibility and rights dossier,
+confirm authorship and verify the final PDF. This candidate records
+a feasible bounded prototype and an honest evaluation, not a
+clinical or prize claim.
+
+References and reproducible artifact index
+
+[1] NIH official challenge announcement, verified 2026-09-27. https:
+//www.nih.gov/challenges/its-about-time-temporal-reasoning-biomedica
+l-knowledge-graphs-challenge
+
+[2] CIViC primary API and curation documentation.
+https://docs.civicdb.org/en/latest/api.html ;
+https://docs.civicdb.org/en/latest/curating/evidence.html
+
+[3] Archived v10 evidence: reports/nih/independent_case_protocol.md
+; runs/post_confirmation_v10/dated-cases-v1/results.json. No rerun.
+
+[4] InvariantCell v11 formal artifacts and actual receipt:
+ontology/nih_v11.owl ; ontology/nih_v11_shapes.ttl ;
+ontology/biolink_mapping_v11.yaml ;
+reports/nih/ontology_v11_validation.json. Formulas:
+provisional_internal_v1.
+
+[5] W3C SHACL and OWL 2 profiles: https://www.w3.org/TR/shacl/ ;
+https://www.w3.org/TR/owl2-profiles/ . Biolink pinned source:
+https://github.com/biolink/biolink-model/tree/v4.3.6
+
+[6] NuCLS primary data, format and license:
+https://sites.google.com/view/nucls/single-rater ;
+https://sites.google.com/view/nucls/data-format ;
+https://github.com/PathologyDataScience/NuCLS . Actual report:
+reports/pathology/real_measurement_validation.md
+
+CIViC semantic source and CC0/MIT statement pinned at https://github
+.com/griffithlab/civic-v2/tree/0488d61aeb0a5c45d2a1a7edc114ac0859429
+39f . Sources were inspected, not executed. Current code does not
+certify lossless historical migration.
+
+V13 freeze and results:
+data/post_confirmation_v13/nih_revision/freeze.json ;
+runs/post_confirmation_v13/nih-civic-revisions-v1/results.json. V14
+proof audit and provenance inventory: reports/nih/v14/ . No original
+answers were regenerated.
+
+[7] ClinVar version retrieval and identifier semantics:
+https://www.ncbi.nlm.nih.gov/clinvar/docs/maintenance_use/ ;
+https://www.ncbi.nlm.nih.gov/clinvar/docs/identifiers/ . Reuse
+policy: https://www.ncbi.nlm.nih.gov/home/about/policies/ . Gold
+pending.
